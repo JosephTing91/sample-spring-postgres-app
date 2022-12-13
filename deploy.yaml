@@ -1,15 +1,29 @@
-- name: Ansible Copy Local to Remote
-  hosts: "{{hosts}}"
-  vars:
-    src_path: "/var/lib/jenkins/workspace/k8s-pipeline"
-    dest_path: "/home/ansadmin"
-    config_file_dest_path: "/home"
-  tasks:
-    - name: copying files with playbook
-      become: true
-      copy:
-        src: "{{ src_path }}"
-        dest: "{{ dest_path }}"
-        owner: ansadmin
-        group: ansadmin
-        mode: 0644
+
+---
+  - name: build container
+    hosts: "{{hosts}}"
+    tasks:
+    - name: clone repo
+      shell:
+         "git clone https://github.com/JosephTing91/sample-spring-postgres-app.git"
+    # - name: Display the file
+    #   shell: cat /tmp/dirlist.txt
+    #   register: displaylist
+
+
+
+# - name: Ansible Copy Local to Remote
+#   hosts: "{{hosts}}"
+#   vars:
+#     src_path: "/var/lib/jenkins/workspace/k8s-pipeline"
+#     dest_path: "/home/ansadmin"
+#     config_file_dest_path: "/home"
+#   tasks:
+#     - name: copying files with playbook
+#       become: true
+#       copy:
+#         src: "{{ src_path }}"
+#         dest: "{{ dest_path }}"
+#         owner: ansadmin
+#         group: ansadmin
+#         mode: 0644
