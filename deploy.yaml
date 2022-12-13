@@ -18,12 +18,16 @@
       become: true
       shell:
         cmd: ./gradlew jibDockerBuild
+    - name: edit env path 
+      shell: "export PATH=$PATH:/usr/local/bin"
     - name: start containers
       become: true
       shell:
         cmd: docker-compose up
 
 
+
+#  add this command to edit path variable... export PATH=$PATH:/usr/local/bin
 
 
     # - name: pull docker image
