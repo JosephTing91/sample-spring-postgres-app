@@ -13,7 +13,7 @@
         dest: "{{ dest_path }}"
         owner: ansadmin
         group: ansadmin
-        mode: 0666
+        mode: 0777
     - name: build image
       become: true
       shell:
