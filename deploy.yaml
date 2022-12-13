@@ -21,7 +21,6 @@
     - name: edit env path 
       shell: "export PATH=$PATH:/usr/local/bin"
     - name: start containers
-      become: true
       shell:
         cmd: docker-compose up
 
