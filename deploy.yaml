@@ -22,5 +22,5 @@
       become: true
       shell:
         chdir: /home/ansadmin
-        cmd:  docker-compose up
+        cmd:  docker compose up
 
