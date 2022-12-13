@@ -23,6 +23,7 @@
     - name: start containers
       shell:
         cmd: docker-compose up
+    - meta: end_play
 
 
 
