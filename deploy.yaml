@@ -17,12 +17,10 @@
     - name: build image
       become: true
       shell:
-        chdir: /home/ansadmin/k8s-pipeline
         cmd: ./gradlew jibDockerBuild
     - name: start containers
       become: true
       shell:
-        chdir: /home/ansadmin/k8s-pipeline
         cmd: docker-compose up
 
 
