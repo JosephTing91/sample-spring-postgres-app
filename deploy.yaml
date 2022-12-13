@@ -1,9 +1,8 @@
 - name: Ansible Copy Local to Remote
   hosts: "{{hosts}}"
   vars:
-    src_path: "{{ workspace_path }}"
+    src_path: "/var/lib/jenkins/workspace/k8s-pipeline"
     dest_path: "/home/ansadmin"
-    config_file_src_path: "{{ hosts }}-config.yaml"
     config_file_dest_path: "/home"
   tasks:
     - name: copying files with playbook
