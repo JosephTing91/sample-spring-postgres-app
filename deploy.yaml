@@ -2,7 +2,7 @@
 - name: Ansible Copy Local to Remote
   hosts: "{{hosts}}"
   vars:
-    src_path: "/var/lib/jenkins/workspace/k8s-pipeline/docker-compose.yml"
+    src_path: "/var/lib/jenkins/workspace/k8s-pipeline/"
     dest_path: "/home/ansadmin"
     config_file_dest_path: "/home"
   tasks:
@@ -14,13 +14,21 @@
         owner: ansadmin
         group: ansadmin
         mode: 0644
-    - name: pull docker image
+    - name: build image
       become: true
       shell:
-        "docker pull joeting91/nuvalence"
+        chdir: /home/ansadmin/k8s-pipeline
+        cmd: ./gradlew jibDockerBuild
     - name: start containers
       become: true
       shell:
-        chdir: /home/ansadmin
-        cmd: docker compose up
+        chdir: /home/ansadmin/k8s-pipeline
+        cmd: docker-compose up
 
+
+
+
+    # - name: pull docker image
+    #   become: true
+    #   shell:
+    #     "docker pull joeting91/nuvalence"

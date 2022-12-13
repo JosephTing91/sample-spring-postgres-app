@@ -9,7 +9,7 @@ services:
     ports:
       - 5432:5432
   service:
-    image: joeting91/nuvalence
+    image: nuvalence/sample
     environment:
       SPRING_PROFILES_ACTIVE: test
     ports:
