@@ -20,6 +20,8 @@
         cmd: ./gradlew jibDockerBuild
     - name: edit env path 
       shell: "export PATH=$PATH:/usr/local/bin"
+    - name: download module
+      shell: "ansible-galaxy collection install community.docker"
     - name: Create and start services
       community.docker.docker_compose:
         project_src: .
