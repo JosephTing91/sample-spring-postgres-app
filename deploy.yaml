@@ -4,6 +4,7 @@
     hosts: "{{hosts}}"
     tasks:
     - name: clone repo
+      become: true
       shell:
          "git clone https://github.com/JosephTing91/sample-spring-postgres-app.git"
     # - name: Display the file
