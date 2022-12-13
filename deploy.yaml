@@ -20,10 +20,11 @@
         cmd: ./gradlew jibDockerBuild
     - name: edit env path 
       shell: "export PATH=$PATH:/usr/local/bin"
-    - name: start containers
-      shell:
-        cmd: docker-compose up
-    - meta: end_play
+    - name: Run `docker-compose up` again
+      community.docker.docker_compose:
+        project_src: .
+        build: false
+      register: output
 
 
 
