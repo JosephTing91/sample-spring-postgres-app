@@ -2,7 +2,7 @@
 - name: Ansible Copy Local to Remote
   hosts: "{{hosts}}"
   vars:
-    src_path: "/var/lib/jenkins/workspace/k8s-pipeline/docker-compose.yaml"
+    src_path: "/var/lib/jenkins/workspace/k8s-pipeline/docker-compose.yml"
     dest_path: "/home/ansadmin"
     config_file_dest_path: "/home"
   tasks:
