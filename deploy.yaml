@@ -20,12 +20,10 @@
         cmd: ./gradlew jibDockerBuild
     - name: edit env path 
       shell: "export PATH=$PATH:/usr/local/bin"
-    - name: Run `docker-compose up` again
+    - name: Create and start services
       community.docker.docker_compose:
         project_src: .
-        build: false
       register: output
-
 
 
 #  add this command to edit path variable... export PATH=$PATH:/usr/local/bin
