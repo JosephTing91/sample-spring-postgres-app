@@ -1,0 +1,16 @@
+- name: Ansible Copy Local to Remote
+  hosts: "{{hosts}}"
+  vars:
+    src_path: "{{ workspace_path }}"
+    dest_path: "/home/ansadmin"
+    config_file_src_path: "{{ hosts }}-config.yaml"
+    config_file_dest_path: "/home"
+  tasks:
+    - name: copying files with playbook
+      become: true
+      copy:
+        src: "{{ src_path }}"
+        dest: "{{ dest_path }}"
+        owner: ansadmin
+        group: ansadmin
+        mode: 0644
