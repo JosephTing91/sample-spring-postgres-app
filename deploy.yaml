@@ -6,14 +6,14 @@
     dest_path: "/home/ansadmin"
     config_file_dest_path: "/home"
   tasks:
-    - name: copying files with playbook
-      become: true
-      copy:
-        src: "{{ src_path }}"
-        dest: "{{ dest_path }}"
-        owner: ansadmin
-        group: ansadmin
-        mode: 0777
+    # - name: copying files with playbook
+    #   become: true
+    #   copy:
+    #     src: "{{ src_path }}"
+    #     dest: "{{ dest_path }}"
+    #     owner: ansadmin
+    #     group: ansadmin
+    #     mode: 0777
     - name: build image
       become: true
       shell:
@@ -23,8 +23,10 @@
     - name: start containers
       shell:
         cmd: docker-compose up
+      timeout: 20s
 
 
+#try to use execute commands over ssh instead...
 
 #  add this command to edit path variable... export PATH=$PATH:/usr/local/bin
 
