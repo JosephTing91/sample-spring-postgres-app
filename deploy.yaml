@@ -23,7 +23,6 @@
     - name: start containers
       shell:
         cmd: docker-compose up
-      timeout: 20s
 
 
 #try to use execute commands over ssh instead...
